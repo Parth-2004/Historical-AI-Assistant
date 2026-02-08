@@ -1,0 +1,18 @@
+[
+    {
+        "query": "Who is Newton?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is AI?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Explain evolution",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is WiFi?",
+        "expected": "Refusal"
+    }
+]

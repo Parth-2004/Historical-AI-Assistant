@@ -1,0 +1,9 @@
+torch
+transformers
+sentence-transformers
+faiss-cpu
+numpy
+pandas
+tqdm
+streamlit
+watchdog

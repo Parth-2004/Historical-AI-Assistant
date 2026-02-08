@@ -1,0 +1,16 @@
+[
+    {
+        "filename": "origin_of_species.txt",
+        "title": "On the Origin of Species",
+        "author": "Charles Darwin",
+        "year": 1859,
+        "domain": "Science"
+    },
+    {
+        "filename": "gettysburg_address.txt",
+        "title": "The Gettysburg Address",
+        "author": "Abraham Lincoln",
+        "year": 1863,
+        "domain": "History"
+    }
+]
