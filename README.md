@@ -4,7 +4,7 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![Knowledge Cutoff](https://img.shields.io/badge/Knowledge_Cutoff-1899-brown)
 
-## 📜 Project Overview
+## Project Overview
 The **Historically Bounded AI Assistant** is an offline Retrieval-Augmented Generation (RAG) system designed to answer questions using **only knowledge available before December 31, 1899**. 
 
 Unlike modern AI models that have access to the internet and 21st-century data, this system is strictly engineered to simulating an intelligent agent existing in the late Victorian era (c. 1890). It features strict **temporal guardrails** that reject any query related to modern technology, ensuring a historically immersive and safe experience.
@@ -13,7 +13,7 @@ Unlike modern AI models that have access to the internet and 21st-century data, 
 
 ---
 
-## 🛠️ Architecture & Concepts
+## Architecture & Concepts
 
 The system follows a modular RAG architecture:
 
@@ -33,7 +33,7 @@ The system follows a modular RAG architecture:
 
 ---
 
-## 💻 Tech Stack
+## Tech Stack
 
 | Component | Tool / Library | Purpose |
 | :--- | :--- | :--- |
@@ -45,16 +45,16 @@ The system follows a modular RAG architecture:
 
 ---
 
-## 🚀 Supported Use Cases
+## Supported Use Cases
 
-### ✅ What It Answers (The "Happy Path")
+### What It Answers (The "Happy Path")
 The system is optimized for topics well-documented and understood in the 19th Century:
 *   **Physics**: "Who is Isaac Newton?", "What is light?", "Explain electricity."
 *   **Biology**: "What is natural selection?", "Explain Darwin's theory."
 *   **History**: "Who is Abraham Lincoln?", "What happened at Gettysburg?"
 *   **General Knowledge**: "What isn't an electron?" (Includes 1897 discovery context).
 
-### ⛔ What It Refuses (The "Guardrails")
+### What It Refuses (The "Guardrails")
 The system will strictly refuse to answer queries containing anachronisms:
 *   **Modern Tech**: "What is an iPhone?", "How does WiFi work?"
 *   **Future Events**: "Who won the World War?", "What is the United Nations?"
@@ -62,7 +62,7 @@ The system will strictly refuse to answer queries containing anachronisms:
 
 ---
 
-## 📥 Installation & Usage
+## Installation & Usage
 
 ### 1. Setup Environment
 Clone the repository and install dependencies:
@@ -85,7 +85,7 @@ streamlit run app/ui.py
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 historical-ai/
@@ -106,7 +106,7 @@ historical-ai/
 
 ---
 
-## 🧠 Mock vs. Real Mode
+## Mock vs. Real Mode
 
 *   **Mock Mode (Current Default)**:
     *   Runs instantly without heavy downloads.
