@@ -14,7 +14,10 @@ TEST_CASES = [
     {"query": "Explain WiFi", "expected": "Refusal"},
     {"query": "What is evolution?", "expected": "Allowed"},
     {"query": "Tell me about the iphone", "expected": "Refusal"},
-    {"query": "When was the Civil War?", "expected": "Allowed"}
+    {"query": "When was the Civil War?", "expected": "Allowed"},
+    {"query": "What happened in 1900?", "expected": "Refusal"},
+    {"query": "What happened in 1899?", "expected": "Allowed"},
+    {"query": "Who is John Doe?", "expected": "Allowed"}
 ]
 
 def run_tests():

@@ -71,8 +71,11 @@ class HistoricalLLM:
             # Mock reasoning for demonstration
             # Extract the actual question from the prompt more robustly
             try:
-                # expecting "Question:\n{query}\n\nAnswer..."
-                question_part = user_prompt.split("Question:")[-1].split("Answer")[0].strip()
+                if "### Inquiry from Correspondent:" in user_prompt:
+                    question_part = user_prompt.split("### Inquiry from Correspondent:\n")[-1].split("### Professor's Response:")[0].strip()
+                else:
+                    # expecting "Question:\n{query}\n\nAnswer..."
+                    question_part = user_prompt.split("Question:")[-1].split("Answer")[0].strip()
             except:
                 question_part = "the unknown"
 
@@ -92,5 +95,5 @@ class HistoricalLLM:
                 return "Light is understood to be a transverse electromagnetic wave, as described by James Clerk Maxwell's equations. Its speed has been measured with great precision by Michelson."
             
             # Generic valid fallback for anything else (instead of error message)
-            return f"Regarding '{question_part}', the archives contain references to this subject in the context of late 19th-century thought. While specific details are retrieving... scholars of this era generally regard it as a significant field of natural philosophy and history."
+            return f"Sufficient evidence was not found in the historical archive regarding '{question_part}'."
 
