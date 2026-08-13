@@ -7,7 +7,7 @@
 ## Project Overview
 The **Historically Bounded AI Assistant** is an offline Retrieval-Augmented Generation (RAG) system designed to answer questions using **only knowledge available before December 31, 1899**.
 
-Unlike modern AI models that have access to the internet and 21st-century data, this system is strictly engineered to simulating an intelligent agent existing in the late Victorian era (c. 1890). It features strict **temporal guardrails** that reject any query related to modern technology, ensuring a historically immersive and safe experience.
+Unlike modern AI models that have access to the internet and 21st-century data, this system is strictly engineered to simulate an intelligent agent existing in the late Victorian era (c. 1890). It features strict **temporal guardrails** that reject any query related to modern technology, ensuring a historically immersive and safe experience.
 
 **Key Definition**: *This is an "Offline-First" AI system suitable for secure environments, academic demonstrations, and resume portfolios.*
 
@@ -65,8 +65,9 @@ The system will strictly refuse to answer queries containing anachronisms:
 ## Installation & Usage
 
 ### 1. Setup Environment
-Clone the repository and install dependencies:
+Clone the repository, navigate into the project directory, and install dependencies:
 ```bash
+cd historical-ai
 pip install -r requirements.txt
 ```
 
@@ -95,6 +96,8 @@ historical-ai/
 │   ├── guardrails.py          # Safety filters (keywords & dates)
 │   ├── retriever.py           # FAISS vector database wrapper
 │   ├── llm.py                 # Offline Model wrapper (Mock & Real modes)
+│   ├── prompt.py              # Prompt construction templates
+│   ├── download_books.py      # Script to download raw historical texts
 │   └── build_knowledge_base.py # Data ingestion pipeline
 ├── data/
 │   ├── raw/                   # Original text files (Darwin, Lincoln)
