@@ -18,7 +18,7 @@ def validate_query(query: str) -> bool:
     for word in keywords:
         # Use regex to check for whole word match to avoid false positives (e.g. "ai" in "explain")
         # Escape the word in case it contains regex special chars
-        if re.search(r'\b' + re.escape(word) + r'\b', query_lower):
+        if re.search(r'\b' + re.escape(word) + r'(?:s|es)?\b', query_lower):
             return False
             
     # Check for dates > 1899

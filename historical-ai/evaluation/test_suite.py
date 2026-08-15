@@ -16,6 +16,8 @@ TEST_CASES = [
     {"query": "Tell me about the iphone", "expected": "Refusal"},
     {"query": "When was the Civil War?", "expected": "Allowed"},
     {"query": "What happened in 1900?", "expected": "Refusal"},
+    {"query": "Tell me about computers", "expected": "Refusal"},
+    {"query": "What are smartphones?", "expected": "Refusal"},
     {"query": "What happened in 1899?", "expected": "Allowed"},
     {"query": "Who is John Doe?", "expected": "Allowed"}
 ]
