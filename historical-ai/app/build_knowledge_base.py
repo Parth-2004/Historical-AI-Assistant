@@ -36,16 +36,16 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-def chunk_text(text: str, metadata: Dict, chunk_size=400, overlap=50) -> List[Dict]:
+def chunk_text(text: str, metadata: Dict, chunk_size=180, overlap=30) -> List[Dict]:
     words = text.split()
     chunks = []
     for i in range(0, len(words), chunk_size - overlap):
         chunk_words = words[i:i + chunk_size]
         chunk_content = " ".join(chunk_words)
-        
-        if len(chunk_words) < 50: # Skip very small chunks
+
+        if len(chunk_words) < 20: # Skip very small chunks
             continue
-            
+
         chunks.append({
             "text": chunk_content,
             "title": metadata["title"],
@@ -71,10 +71,10 @@ def build_knowledge_base():
         if not os.path.exists(file_path):
             print(f"Warning: File {file_path} not found.")
             continue
-            
+
         with open(file_path, 'r', encoding='utf-8') as f:
             raw_text = f.read()
-            
+
         cleaned_text = clean_text(raw_text)
         file_chunks = chunk_text(cleaned_text, meta)
         all_chunks.extend(file_chunks)
@@ -83,12 +83,12 @@ def build_knowledge_base():
     # Save chunks
     with open(CHUNKS_FILE, 'w', encoding='utf-8') as f:
         json.dump(all_chunks, f, indent=2)
-    
+
     print(f"Saved {len(all_chunks)} chunks to {CHUNKS_FILE}")
 
     # Step 2: Embeddings
     print("Step 2: Generating Embeddings...")
-    
+
     if ML_AVAILABLE:
         model = SentenceTransformer('all-MiniLM-L6-v2')
         texts = [c["text"] for c in all_chunks]
