@@ -47,12 +47,29 @@ def run_tests():
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     vector_db = os.path.join(base_dir, "vector_db")
     if os.path.exists(os.path.join(vector_db, "chunks_metadata.json")):
-        print("\nTesting Retriever Connectivity...")
+        print("\nTesting Retriever Connectivity and Thresholds...")
         try:
             retriever = Retriever(vector_db)
             print("[PASS] Retriever loaded successfully.")
+
+            # Test Irrelevant Retrieval
+            irrelevant_query = "What is the recipe for chocolate chip cookies?"
+            irrelevant_results = retriever.retrieve(irrelevant_query, k=3)
+            if len(irrelevant_results) == 0:
+                print("[PASS] Irrelevant query successfully filtered out.")
+            else:
+                print(f"[FAIL] Irrelevant query returned {len(irrelevant_results)} chunks (Expected 0).")
+
+            # Test Relevant Retrieval
+            relevant_query = "What is natural selection?"
+            relevant_results = retriever.retrieve(relevant_query, k=1)
+            if len(relevant_results) > 0:
+                print("[PASS] Relevant query successfully retrieved context.")
+            else:
+                print("[FAIL] Relevant query returned 0 chunks (Expected > 0).")
+
         except Exception as e:
-            print(f"[FAIL] Retriever load failed: {e}")
+            print(f"[FAIL] Retriever test failed: {e}")
     else:
         print("\n[SKIP] Retriever test skipped (DB not built).")
 
