@@ -55,8 +55,8 @@ class Retriever:
             distances, indices = self.index.search(query_vector, k)
             
             results = []
-            for idx in indices[0]:
-                if idx < len(self.metadata) and idx >= 0:
+            for i, idx in enumerate(indices[0]):
+                if distances[0][i] <= 1.65 and idx < len(self.metadata) and idx >= 0:
                     results.append(self.metadata[idx])
             return results
 
