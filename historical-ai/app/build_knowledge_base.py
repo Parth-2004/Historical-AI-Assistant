@@ -36,7 +36,7 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-def chunk_text(text: str, metadata: Dict, chunk_size=180, overlap=30) -> List[Dict]:
+def chunk_text(text: str, metadata: Dict, chunk_size=120, overlap=30) -> List[Dict]:
     words = text.split()
     chunks = []
     for i in range(0, len(words), chunk_size - overlap):
@@ -98,6 +98,7 @@ def build_knowledge_base():
         # Step 3: FAISS Index
         print("Step 3: Building Vector Index...")
         dimension = embeddings.shape[1]
+        faiss.normalize_L2(embeddings)
         index = faiss.IndexFlatL2(dimension)
         index.add(embeddings)
         faiss.write_index(index, INDEX_FILE)
