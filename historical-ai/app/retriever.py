@@ -52,11 +52,12 @@ class Retriever:
             return [item for score, item in scored_results[:k]]
         else:
             query_vector = self.model.encode([query]).astype('float32')
+            faiss.normalize_L2(query_vector)
             distances, indices = self.index.search(query_vector, k)
             
             results = []
             for i, idx in enumerate(indices[0]):
-                if distances[0][i] <= 1.65 and idx < len(self.metadata) and idx >= 0:
+                if distances[0][i] <= 1.30 and idx < len(self.metadata) and idx >= 0:
                     results.append(self.metadata[idx])
             return results
 
