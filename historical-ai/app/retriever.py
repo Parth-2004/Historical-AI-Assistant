@@ -16,7 +16,7 @@ class Retriever:
         self.index_path = os.path.join(vector_db_dir, "index.faiss")
         self.meta_path = os.path.join(vector_db_dir, "chunks_metadata.json")
         self.mock_flag = os.path.join(vector_db_dir, "mock_mode.flag")
-        
+
         self.is_mock = False
         if os.path.exists(self.mock_flag) or not ML_AVAILABLE:
             self.is_mock = True
@@ -29,10 +29,10 @@ class Retriever:
 
         if not os.path.exists(self.meta_path):
             raise FileNotFoundError("Metadata not found.")
-            
+
         with open(self.meta_path, 'r', encoding='utf-8') as f:
             self.metadata = json.load(f)
-        
+
     def retrieve(self, query: str, k: int = 3) -> List[Dict]:
         if self.is_mock:
             # Simple keyword matching for demo
@@ -46,19 +46,38 @@ class Retriever:
                         score += 1
                 if score > 0:
                     scored_results.append((score, item))
-            
+
             # Sort by score descending
             scored_results.sort(key=lambda x: x[0], reverse=True)
-            return [item for score, item in scored_results[:k]]
+
+            # Deduplicate by text
+            results = []
+            seen_texts = set()
+            for score, item in scored_results:
+                if item['text'] not in seen_texts:
+                    seen_texts.add(item['text'])
+                    results.append(item)
+                    if len(results) >= k:
+                        break
+            return results
         else:
             query_vector = self.model.encode([query]).astype('float32')
             faiss.normalize_L2(query_vector)
-            distances, indices = self.index.search(query_vector, k)
-            
+
+            # Fetch more candidates to account for potential duplicates
+            fetch_k = max(k * 3, 10)
+            distances, indices = self.index.search(query_vector, fetch_k)
+
             results = []
+            seen_texts = set()
             for i, idx in enumerate(indices[0]):
                 if distances[0][i] <= 1.30 and idx < len(self.metadata) and idx >= 0:
-                    results.append(self.metadata[idx])
+                    item = self.metadata[idx]
+                    if item['text'] not in seen_texts:
+                        seen_texts.add(item['text'])
+                        results.append(item)
+                        if len(results) >= k:
+                            break
             return results
 
     def format_context(self, results: List[Dict]) -> str:

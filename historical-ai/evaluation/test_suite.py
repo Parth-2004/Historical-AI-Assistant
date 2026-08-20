@@ -68,6 +68,25 @@ def run_tests():
             else:
                 print("[FAIL] Relevant query returned 0 chunks (Expected > 0).")
 
+            # Test Duplicate Removal
+            if len(retriever.metadata) > 0:
+                original_metadata = retriever.metadata.copy()
+                original_is_mock = retriever.is_mock
+                retriever.is_mock = True  # use mock for controlled deduplication test
+                # Inject a duplicate
+                retriever.metadata.append(retriever.metadata[0])
+                dup_results = retriever.retrieve(retriever.metadata[0]['title'], k=3)
+                texts = [r['text'] for r in dup_results]
+
+                # Restore original to not mess with subsequent tests
+                retriever.metadata = original_metadata
+                retriever.is_mock = original_is_mock
+
+                if len(texts) == len(set(texts)):
+                    print("[PASS] Retriever successfully deduplicates identical text chunks.")
+                else:
+                    print(f"[FAIL] Retriever returned duplicate text chunks. Got {len(texts)} chunks, but only {len(set(texts))} unique.")
+
         except Exception as e:
             print(f"[FAIL] Retriever test failed: {e}")
     else:
