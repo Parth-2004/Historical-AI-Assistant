@@ -24,7 +24,8 @@ TEST_CASES = [
     {"query": "What is the United Nations?", "expected": "Refusal"},
     {"query": "Write a Python script", "expected": "Refusal"},
     {"query": "What happened in 2105?", "expected": "Refusal"},
-    {"query": "An army of 5000 men", "expected": "Allowed"}
+    {"query": "An army of 5000 men", "expected": "Allowed"},
+    {"query": "Who gave the Gettysburg address?", "expected": "Allowed"}
 ]
 
 def run_tests():
@@ -72,6 +73,14 @@ def run_tests():
                 print("[PASS] Relevant query successfully retrieved context.")
             else:
                 print("[FAIL] Relevant query returned 0 chunks (Expected > 0).")
+
+            # Test Threshold Limits
+            threshold_query = "Who gave the Gettysburg address?"
+            threshold_results = retriever.retrieve(threshold_query, k=1)
+            if len(threshold_results) > 0:
+                print("[PASS] Borderline relevant query successfully retrieved context.")
+            else:
+                print("[FAIL] Borderline relevant query returned 0 chunks (Expected > 0).")
 
             # Test Duplicate Removal
             if len(retriever.metadata) > 0:

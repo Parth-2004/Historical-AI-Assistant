@@ -71,7 +71,7 @@ class Retriever:
             results = []
             seen_texts = set()
             for i, idx in enumerate(indices[0]):
-                if distances[0][i] <= 1.30 and idx < len(self.metadata) and idx >= 0:
+                if distances[0][i] <= 1.50 and idx < len(self.metadata) and idx >= 0:
                     item = self.metadata[idx]
                     if item['text'] not in seen_texts:
                         seen_texts.add(item['text'])
