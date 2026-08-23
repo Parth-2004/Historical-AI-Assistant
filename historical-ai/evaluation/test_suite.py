@@ -25,7 +25,11 @@ TEST_CASES = [
     {"query": "Write a Python script", "expected": "Refusal"},
     {"query": "What happened in 2105?", "expected": "Refusal"},
     {"query": "An army of 5000 men", "expected": "Allowed"},
-    {"query": "Who gave the Gettysburg address?", "expected": "Allowed"}
+    {"query": "Who gave the Gettysburg address?", "expected": "Allowed"},
+    {"query": "An army of 2000 men", "expected": "Allowed"},
+    {"query": "What happened in 2500?", "expected": "Refusal"},
+    {"query": "The 1920s were a crazy time", "expected": "Refusal"},
+    {"query": "He walked 1950 miles", "expected": "Allowed"}
 ]
 
 def run_tests():
