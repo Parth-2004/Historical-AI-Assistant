@@ -40,6 +40,10 @@ def validate_query(query: str) -> bool:
                 # It's a quantity
                 continue
 
+            if re.match(r'^[\W_]*(bc|bce|b\.c\.|b\.c\.e\.)(?:\b|\Z|\s)', context_after):
+                # It's a BC/BCE year
+                continue
+
             # Likely a year > 1899
             return False
 
