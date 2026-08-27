@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -7,37 +8,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from app.guardrails import validate_query
 from app.retriever import Retriever
 
-# Mock expected behaviors
-TEST_CASES = [
-    {"query": "What is AI?", "expected": "Refusal"},
-    {"query": "Who is Newton?", "expected": "Allowed"},
-    {"query": "Explain WiFi", "expected": "Refusal"},
-    {"query": "What is evolution?", "expected": "Allowed"},
-    {"query": "Tell me about the iphone", "expected": "Refusal"},
-    {"query": "When was the Civil War?", "expected": "Allowed"},
-    {"query": "What happened in 1900?", "expected": "Refusal"},
-    {"query": "Tell me about computers", "expected": "Refusal"},
-    {"query": "What are smartphones?", "expected": "Refusal"},
-    {"query": "What happened in 1899?", "expected": "Allowed"},
-    {"query": "Who is John Doe?", "expected": "Allowed"},
-    {"query": "Who won the World War?", "expected": "Refusal"},
-    {"query": "What is the United Nations?", "expected": "Refusal"},
-    {"query": "Write a Python script", "expected": "Refusal"},
-    {"query": "What happened in 2105?", "expected": "Refusal"},
-    {"query": "An army of 5000 men", "expected": "Allowed"},
-    {"query": "Who gave the Gettysburg address?", "expected": "Allowed"},
-    {"query": "An army of 2000 men", "expected": "Allowed"},
-    {"query": "What happened in 2500?", "expected": "Refusal"},
-    {"query": "The 1920s were a crazy time", "expected": "Refusal"},
-    {"query": "He walked 1950 miles", "expected": "Allowed"},
-    {"query": "An army of 2000, men", "expected": "Allowed"},
-    {"query": "Cost is 1950. dollars.", "expected": "Allowed"},
-    {"query": "2000-men", "expected": "Allowed"},
-    {"query": "What happened in 2000 BC?", "expected": "Allowed"},
-    {"query": "Around 1950 B.C. they built it.", "expected": "Allowed"}
-]
+def load_test_cases():
+    test_cases_path = os.path.join(os.path.dirname(__file__), "test_cases.json")
+    with open(test_cases_path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def run_tests():
+    TEST_CASES = load_test_cases()
     print("Running Evaluation Suite...")
     passed = 0
     total = len(TEST_CASES)
