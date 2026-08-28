@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from app.guardrails import validate_query
 from app.retriever import Retriever
+from app.main import ask_historical_ai
 
 def load_test_cases():
     test_cases_path = os.path.join(os.path.dirname(__file__), "test_cases.json")
@@ -119,6 +120,17 @@ def run_tests():
             print(f"[SKIP] Chunk size test failed to run: {e}")
     else:
         print("\n[SKIP] Chunk size test skipped (chunks.json not found).")
+
+    print("\nTesting End-to-End Mock LLM Grounding...")
+    try:
+        query = "Who gave the Gettysburg address?"
+        result = ask_historical_ai(query, model_path="mock")
+        if result["status"] == "ok" and "Based on the historical archive:" in result["answer"]:
+            print(f"[PASS] Mock LLM correctly used retrieved context for query: '{query}'")
+        else:
+            print(f"[FAIL] Mock LLM did not use retrieved context. Answer: {result.get('answer')}")
+    except Exception as e:
+        print(f"[FAIL] Mock LLM Grounding test failed: {e}")
 
 
 if __name__ == "__main__":
