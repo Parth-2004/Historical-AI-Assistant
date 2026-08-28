@@ -69,7 +69,15 @@ class HistoricalLLM:
             return generated_text
         else:
             # Mock reasoning for demonstration
-            # Extract the actual question from the prompt more robustly
+            # Extract the actual context and question from the prompt more robustly
+            try:
+                if "### Historical Archives:\n" in user_prompt:
+                    context_part = user_prompt.split("### Historical Archives:\n")[1].split("### Inquiry from Correspondent:")[0].strip()
+                else:
+                    context_part = "No specific records found."
+            except:
+                context_part = "No specific records found."
+
             try:
                 if "### Inquiry from Correspondent:" in user_prompt:
                     question_part = user_prompt.split("### Inquiry from Correspondent:\n")[-1].split("### Professor's Response:")[0].strip()
@@ -79,7 +87,11 @@ class HistoricalLLM:
             except:
                 question_part = "the unknown"
 
-            # Extended knowledge base for Mock Mode
+            # If we have retrieved context, use it to ground the response
+            if context_part and context_part != "No specific records found.":
+                return f"Based on the historical archive:\n{context_part}"
+
+            # Extended knowledge base for Mock Mode (fallback if no context)
             lower_q = question_part.lower()
             if "newton" in lower_q:
                 return "Sir Isaac Newton (1642–1727) was an English mathematician, physicist, astronomer, alchemist, theologian, and author. He is best known for his laws of motion and universal gravitation."
