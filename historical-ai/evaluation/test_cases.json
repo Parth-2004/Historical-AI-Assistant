@@ -102,5 +102,21 @@
     {
         "query": "2000-men",
         "expected": "Allowed"
+    },
+    {
+        "query": "Cost is £1900.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Cost is $1950.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "He has 1900 coins.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "A 1900 ton ship.",
+        "expected": "Allowed"
     }
 ]

@@ -36,8 +36,17 @@ def validate_query(query: str) -> bool:
 
             # Check context immediately after the number
             context_after = query_lower[match.end():].strip()
-            if re.match(r'^[\W_]*(men|women|soldiers|troops|people|persons|dollars|pounds|miles|feet|meters|horses|ships|guns|pages|words|years|days|months|hours|minutes|apples|books|casualties|deaths|sailors)\b', context_after):
+            if re.match(r'^[\W_]*(men|women|soldiers|troops|people|persons|dollars|pounds|miles|feet|meters|horses|ships|guns|pages|words|years|days|months|hours|minutes|apples|books|casualties|deaths|sailors|ton|tons|kilogram|kilograms|gram|grams|ounce|ounces|coin|coins)\b', context_after):
                 # It's a quantity
+                continue
+
+            if re.match(r'^[\W_]*[£$€¥]', context_after):
+                # It's a currency with symbol after
+                continue
+
+            # Check context before the number (e.g. £1900, $1950)
+            context_before = query_lower[:match.start()].strip()
+            if re.search(r'[£$€¥]\s*$', context_before):
                 continue
 
             if re.match(r'^[\W_]*(bc|bce|b\.c\.|b\.c\.e\.)(?:\b|\Z|\s)', context_after):
