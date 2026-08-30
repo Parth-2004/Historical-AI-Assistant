@@ -12,5 +12,26 @@
         "author": "Abraham Lincoln",
         "year": 1863,
         "domain": "History"
+    },
+    {
+        "filename": "the_declaration_of_independence.txt",
+        "title": "The Declaration of Independence",
+        "author": "Thomas Jefferson",
+        "year": 1776,
+        "domain": "History"
+    },
+    {
+        "filename": "the_united_states_constitution.txt",
+        "title": "The United States Constitution",
+        "author": "United States",
+        "year": 1787,
+        "domain": "History"
+    },
+    {
+        "filename": "the_magna_carta.txt",
+        "title": "The Magna Carta",
+        "author": "Anonymous",
+        "year": 1215,
+        "domain": "History"
     }
 ]

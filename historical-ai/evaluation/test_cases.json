@@ -104,7 +104,7 @@
         "expected": "Allowed"
     },
     {
-        "query": "Cost is £1900.",
+        "query": "Cost is \u00a31900.",
         "expected": "Allowed"
     },
     {
@@ -117,6 +117,18 @@
     },
     {
         "query": "A 1900 ton ship.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who signed the Magna Carta?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What does the Declaration of Independence say?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the United States Constitution?",
         "expected": "Allowed"
     }
 ]
