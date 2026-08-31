@@ -33,5 +33,12 @@
         "author": "Anonymous",
         "year": 1215,
         "domain": "History"
+    },
+    {
+        "filename": "emancipation_proclamation.txt",
+        "title": "The Emancipation Proclamation",
+        "author": "Abraham Lincoln",
+        "year": 1863,
+        "domain": "History"
     }
 ]
