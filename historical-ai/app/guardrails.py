@@ -22,6 +22,15 @@ def validate_query(query: str) -> bool:
         if re.search(r'\b' + re.escape(word) + r'(?:s|es)?\b', query_lower):
             return False
 
+    # Check for spelled-out modern centuries
+    if re.search(r'\b(twentieth|twenty[\s-]*first|twenty[\s-]*second|20th|21st|22nd)\s+century\b', query_lower):
+        return False
+
+    # Check for spelled-out modern years (e.g., "nineteen hundred", "nineteen twenty", "two thousand")
+    # We match "nineteen" followed by 0-99, or "two thousand"
+    if re.search(r'\bnineteen[\s-]*(hundred|oh[\s-]+(one|two|three|four|five|six|seven|eight|nine)|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b|\btwo[\s-]*thousand\b', query_lower):
+        return False
+
     # Check for dates > 1899
     # We match numbers >= 1900.
     # To avoid false positives (e.g. "5000 men" or "1950 dollars"), we check the following word.

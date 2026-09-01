@@ -134,5 +134,25 @@
     {
         "query": "What did Abraham Lincoln write about slavery?",
         "expected": "Allowed"
+    },
+    {
+        "query": "What happened in nineteen hundred?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the twentieth century.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "In the year nineteen twelve...",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The nineteenth century was interesting.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What happened in nineteen ninety-nine?",
+        "expected": "Refusal"
     }
 ]
