@@ -91,7 +91,7 @@ def build_knowledge_base():
 
     if ML_AVAILABLE:
         model = SentenceTransformer('all-MiniLM-L6-v2')
-        texts = [c["text"] for c in all_chunks]
+        texts = [f"Title: {c['title']}. Author: {c['author']}. Year: {c['year']}. Text: {c['text']}" for c in all_chunks]
         embeddings = model.encode(texts, show_progress_bar=True)
         embeddings = np.array(embeddings).astype('float32')
 
