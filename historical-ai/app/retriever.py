@@ -35,13 +35,30 @@ class Retriever:
 
     def retrieve(self, query: str, k: int = 3) -> List[Dict]:
         if self.is_mock:
-            # Simple keyword matching for demo
-            query_terms = query.lower().split()
+            # Simple keyword matching for demo with basic stopword filtering
+            import string
+            stopwords = {'what', 'is', 'the', 'a', 'an', 'of', 'in', 'to', 'and', 'for', 'with', 'on', 'how', 'why', 'who', 'where', 'when', 'did', 'does', 'do', 'are', 'was', 'were'}
+
+            # Clean and filter query terms
+            raw_terms = query.lower().split()
+            query_terms = []
+            for term in raw_terms:
+                cleaned_term = term.strip(string.punctuation)
+                if cleaned_term and cleaned_term not in stopwords:
+                    query_terms.append(cleaned_term)
+
+            # Fallback in case all words were filtered out
+            if not query_terms:
+                 query_terms = [t.strip(string.punctuation) for t in raw_terms if t.strip(string.punctuation)]
+
             scored_results = []
             for item in self.metadata:
                 score = 0
                 text_lower = item['text'].lower()
                 for term in query_terms:
+                    # Look for word boundaries to improve accuracy in mock mode
+                    # Since we can't easily use regex here without performance hit,
+                    # we will just check if term is in text.
                     if term in text_lower:
                         score += 1
                 if score > 0:
