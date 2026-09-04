@@ -154,5 +154,29 @@
     {
         "query": "What happened in nineteen ninety-nine?",
         "expected": "Refusal"
+    },
+    {
+        "query": "What happened in twenty twenty?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about twenty ten.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He had twenty men in his army.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "The year twenty twenty-one was wild.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "They paid twenty hundred dollars.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He bought twenty apples.",
+        "expected": "Allowed"
     }
 ]
