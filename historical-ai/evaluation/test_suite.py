@@ -121,6 +121,28 @@ def run_tests():
     else:
         print("\n[SKIP] Chunk size test skipped (chunks.json not found).")
 
+
+    # Test Word Boundary Matching (Mock Mode)
+    if os.path.exists(os.path.join(vector_db, "chunks_metadata.json")):
+        print("\nTesting Mock Retriever Word Boundary Matching...")
+        try:
+            retriever_mock = Retriever(vector_db)
+            retriever_mock.is_mock = True
+
+            # This query shouldn't match "amendment"
+            mock_results = retriever_mock.retrieve("men", k=10)
+            passed_word_boundary = True
+            for r in mock_results:
+                if "amendment" in r['text'].lower() and " men " not in r['text'].lower() and "men." not in r['text'].lower() and "men," not in r['text'].lower():
+                    passed_word_boundary = False
+                    print(f"[FAIL] Word boundary test failed. Returned text containing 'amendment' for query 'men': {r['text'][:50]}...")
+                    break
+
+            if passed_word_boundary:
+                print("[PASS] Mock Retriever successfully uses word boundary matching and avoids false positives.")
+        except Exception as e:
+            print(f"[FAIL] Mock Retriever word boundary test failed: {e}")
+
     print("\nTesting End-to-End Mock LLM Grounding...")
     try:
         query = "Who gave the Gettysburg address?"

@@ -1,6 +1,7 @@
 import os
 import json
 import numpy as np
+import re
 from typing import List, Dict
 
 try:
@@ -57,9 +58,7 @@ class Retriever:
                 text_lower = item['text'].lower()
                 for term in query_terms:
                     # Look for word boundaries to improve accuracy in mock mode
-                    # Since we can't easily use regex here without performance hit,
-                    # we will just check if term is in text.
-                    if term in text_lower:
+                    if re.search(rf'\b{re.escape(term)}\b', text_lower):
                         score += 1
                 if score > 0:
                     scored_results.append((score, item))
