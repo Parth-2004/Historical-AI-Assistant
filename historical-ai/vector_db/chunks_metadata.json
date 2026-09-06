@@ -1926,5 +1926,37 @@
     "year": 1863,
     "domain": "History",
     "source_file": "emancipation_proclamation.txt"
+  },
+  {
+    "text": "PHILOSOPHI\u00c6 NATURALIS PRINCIPIA MATHEMATICA By Sir Isaac Newton Definitions Definition I The quantity of matter is the measure of the same, arising from its density and bulk conjointly. Thus air of a double density, in a double space, is quadruple in quantity; in a triple space, sextuple in quantity. The same thing is to be understood of snow, and fine dust or powders, that are condensed by compression or liquefaction, and of all bodies that are by any causes whatever differently condensed. I have no regard in this place to a medium, if any such there is, that freely pervades the interstices between the parts of bodies. It is this quantity that I mean hereafter everywhere under the name of",
+    "title": "Philosophi\u00e6 Naturalis Principia Mathematica",
+    "author": "Isaac Newton",
+    "year": 1687,
+    "domain": "Science",
+    "source_file": "newtons_principia_excerpt.txt"
+  },
+  {
+    "text": "a medium, if any such there is, that freely pervades the interstices between the parts of bodies. It is this quantity that I mean hereafter everywhere under the name of body or mass. And the same is known by the weight of each body, for it is proportional to the weight, as I have found by experiments on pendulums, very accurately made, which shall be shown hereafter. Definition II The quantity of motion is the measure of the same, arising from the velocity and quantity of matter conjointly. The motion of the whole is the sum of the motions of all the parts; and therefore in a body double in quantity, with equal velocity, the motion is double; with twice",
+    "title": "Philosophi\u00e6 Naturalis Principia Mathematica",
+    "author": "Isaac Newton",
+    "year": 1687,
+    "domain": "Science",
+    "source_file": "newtons_principia_excerpt.txt"
+  },
+  {
+    "text": "of the whole is the sum of the motions of all the parts; and therefore in a body double in quantity, with equal velocity, the motion is double; with twice the velocity, it is quadruple. Axioms, or Laws of Motion Law I Every body perseveres in its state of rest, or of uniform motion in a right line, unless it is compelled to change that state by forces impressed thereon. Projectiles persevere in their motions, so far as they are not retarded by the resistance of the air, or impelled downwards by the force of gravity. A top, whose parts by their cohesion are perpetually drawn aside from rectilinear motions, does not cease its rotation, otherwise than as it is",
+    "title": "Philosophi\u00e6 Naturalis Principia Mathematica",
+    "author": "Isaac Newton",
+    "year": 1687,
+    "domain": "Science",
+    "source_file": "newtons_principia_excerpt.txt"
+  },
+  {
+    "text": "downwards by the force of gravity. A top, whose parts by their cohesion are perpetually drawn aside from rectilinear motions, does not cease its rotation, otherwise than as it is retarded by the air. The greater bodies of the planets and comets, meeting with less resistance in more free spaces, preserve their motions both progressive and circular for a much longer time.",
+    "title": "Philosophi\u00e6 Naturalis Principia Mathematica",
+    "author": "Isaac Newton",
+    "year": 1687,
+    "domain": "Science",
+    "source_file": "newtons_principia_excerpt.txt"
   }
 ]

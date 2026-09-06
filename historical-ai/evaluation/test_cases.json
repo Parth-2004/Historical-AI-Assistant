@@ -178,5 +178,9 @@
     {
         "query": "He bought twenty apples.",
         "expected": "Allowed"
+    },
+    {
+        "query": "What is the first law of motion?",
+        "expected": "Allowed"
     }
 ]
