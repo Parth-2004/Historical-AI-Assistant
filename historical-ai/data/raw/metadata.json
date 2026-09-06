@@ -40,5 +40,12 @@
         "author": "Abraham Lincoln",
         "year": 1863,
         "domain": "History"
+    },
+    {
+        "filename": "newtons_principia_excerpt.txt",
+        "title": "Philosophi\u00e6 Naturalis Principia Mathematica",
+        "author": "Isaac Newton",
+        "year": 1687,
+        "domain": "Science"
     }
 ]
