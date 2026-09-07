@@ -31,6 +31,10 @@ def validate_query(query: str) -> bool:
     if re.search(r'\b(nineteen|twenty)[\s-]*(hundred|oh[\s-]+(one|two|three|four|five|six|seven|eight|nine)|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b|\btwo[\s-]*thousand\b', query_lower):
         return False
 
+    # Check for spelled-out modern decades (e.g., "nineteen twenties", "nineteen nineties")
+    if re.search(r'\b(nineteen|twenty)[\s-]*(twenties|thirties|forties|fifties|sixties|seventies|eighties|nineties|tens)\b', query_lower):
+        return False
+
     # Check for dates > 1899
     # We match numbers >= 1900.
     # To avoid false positives (e.g. "5000 men" or "1950 dollars"), we check the following word.
