@@ -55,10 +55,11 @@ class Retriever:
             scored_results = []
             for item in self.metadata:
                 score = 0
-                text_lower = item['text'].lower()
+                # Include metadata in the search text for mock retrieval
+                search_text = f"{item.get('title', '')} {item.get('author', '')} {item.get('year', '')} {item['text']}".lower()
                 for term in query_terms:
                     # Look for word boundaries to improve accuracy in mock mode
-                    if re.search(rf'\b{re.escape(term)}\b', text_lower):
+                    if re.search(rf'\b{re.escape(term)}\b', search_text):
                         score += 1
                 if score > 0:
                     scored_results.append((score, item))

@@ -140,8 +140,16 @@ def run_tests():
 
             if passed_word_boundary:
                 print("[PASS] Mock Retriever successfully uses word boundary matching and avoids false positives.")
+
+            # Test Metadata Matching in Mock Mode
+            mock_metadata_results = retriever_mock.retrieve("Charles Darwin", k=1)
+            if len(mock_metadata_results) > 0 and mock_metadata_results[0]['author'] == 'Charles Darwin':
+                print("[PASS] Mock Retriever successfully matches metadata (Author: Darwin).")
+            else:
+                print(f"[FAIL] Mock Retriever failed to match metadata for 'Charles Darwin'. Returned: {len(mock_metadata_results)} chunks.")
+
         except Exception as e:
-            print(f"[FAIL] Mock Retriever word boundary test failed: {e}")
+            print(f"[FAIL] Mock Retriever test failed: {e}")
 
     print("\nTesting End-to-End Mock LLM Grounding...")
     try:
