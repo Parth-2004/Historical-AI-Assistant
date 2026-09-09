@@ -47,5 +47,12 @@
         "author": "Isaac Newton",
         "year": 1687,
         "domain": "Science"
+    },
+    {
+        "filename": "bill_of_rights.txt",
+        "title": "The Bill of Rights",
+        "author": "United States Congress",
+        "year": 1789,
+        "domain": "History"
     }
 ]

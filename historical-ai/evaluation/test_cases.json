@@ -190,5 +190,13 @@
     {
         "query": "The nineteen nineties were a crazy time",
         "expected": "Refusal"
+    },
+    {
+        "query": "What does the first amendment say?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the Bill of Rights?",
+        "expected": "Allowed"
     }
 ]
