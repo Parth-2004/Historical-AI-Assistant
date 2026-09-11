@@ -54,5 +54,12 @@
         "author": "United States Congress",
         "year": 1789,
         "domain": "History"
+    },
+    {
+        "filename": "common_sense.txt",
+        "title": "Common Sense",
+        "author": "Thomas Paine",
+        "year": 1776,
+        "domain": "History"
     }
 ]
