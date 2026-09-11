@@ -198,5 +198,13 @@
     {
         "query": "What is the Bill of Rights?",
         "expected": "Allowed"
+    },
+    {
+        "query": "Who wrote Common Sense?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is Common Sense?",
+        "expected": "Allowed"
     }
 ]

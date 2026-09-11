@@ -29,6 +29,9 @@ def load_metadata():
         return json.load(f)
 
 def clean_text(text: str) -> str:
+    # Strip Project Gutenberg boilerplate
+    text = re.sub(r'(?is).*?\*\*\* START OF THE PROJECT GUTENBERG EBOOK.*?\*\*\*', '', text)
+    text = re.sub(r'(?is)\*\*\* END OF THE PROJECT GUTENBERG EBOOK.*', '', text)
     # Remove OCR artifacts (simple placeholders)
     # Fix hyphenation at line ends
     text = re.sub(r'-\n', '', text)
