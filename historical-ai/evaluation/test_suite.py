@@ -159,6 +159,15 @@ def run_tests():
             print(f"[PASS] Mock LLM correctly used retrieved context for query: '{query}'")
         else:
             print(f"[FAIL] Mock LLM did not use retrieved context. Answer: {result.get('answer')}")
+
+        # Test Ungrounded Fallback
+        ungrounded_query = "Explain electricity"
+        result2 = ask_historical_ai(ungrounded_query, model_path="mock")
+        if result2["status"] == "ok" and "Sufficient evidence was not found" in result2["answer"]:
+            print(f"[PASS] Mock LLM correctly used fallback for ungrounded query: '{ungrounded_query}'")
+        else:
+            print(f"[FAIL] Mock LLM failed ungrounded fallback test. Answer: {result2.get('answer')}")
+
     except Exception as e:
         print(f"[FAIL] Mock LLM Grounding test failed: {e}")
 
