@@ -91,21 +91,6 @@ class HistoricalLLM:
             if context_part and context_part != "No specific records found.":
                 return f"Based on the historical archive:\n{context_part}"
 
-            # Extended knowledge base for Mock Mode (fallback if no context)
-            lower_q = question_part.lower()
-            if "newton" in lower_q:
-                return "Sir Isaac Newton (1642–1727) was an English mathematician, physicist, astronomer, alchemist, theologian, and author. He is best known for his laws of motion and universal gravitation."
-            elif "evolution" in lower_q or "darwin" in lower_q:
-                return "Charles Darwin propounded the theory of evolution by natural selection, detailing how species adapt over time in his seminal work 'On the Origin of Species' (1859)."
-            elif "lincoln" in lower_q:
-                return "Abraham Lincoln served as the 16th President of the United States, leading the nation through its Civil War and issuing the Emancipation Proclamation."
-            elif "electron" in lower_q:
-                return "The electron was recently identified by J.J. Thomson in 1897 as a corpuscle of negative charge, revolutionizing our understanding of atomic structure."
-            elif "electricity" in lower_q:
-                return "Electricity is a set of physical phenomena associated with the presence and motion of matter that has a property of electric charge. It is harnessed today for telegraphy, lighting, and industrial motors."
-            elif "light" in lower_q:
-                return "Light is understood to be a transverse electromagnetic wave, as described by James Clerk Maxwell's equations. Its speed has been measured with great precision by Michelson."
-            
             # Generic valid fallback for anything else (instead of error message)
             return f"Sufficient evidence was not found in the historical archive regarding '{question_part}'."
 
