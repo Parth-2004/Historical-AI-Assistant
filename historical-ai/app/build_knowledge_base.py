@@ -30,11 +30,23 @@ def load_metadata():
 
 def clean_text(text: str) -> str:
     # Strip Project Gutenberg boilerplate
-    text = re.sub(r'(?is).*?\*\*\* START OF THE PROJECT GUTENBERG EBOOK.*?\*\*\*', '', text)
-    text = re.sub(r'(?is)\*\*\* END OF THE PROJECT GUTENBERG EBOOK.*', '', text)
+    start_marker = "*** START OF THE PROJECT GUTENBERG EBOOK"
+    end_marker = "*** END OF THE PROJECT GUTENBERG EBOOK"
+
+    start_idx = text.find(start_marker)
+    if start_idx != -1:
+        # Find the end of the start marker line
+        end_of_start_marker = text.find("***", start_idx + len(start_marker))
+        if end_of_start_marker != -1:
+            text = text[end_of_start_marker + 3:]
+
+    end_idx = text.find(end_marker)
+    if end_idx != -1:
+        text = text[:end_idx]
+
     # Remove OCR artifacts (simple placeholders)
     # Fix hyphenation at line ends
-    text = re.sub(r'-\n', '', text)
+    text = text.replace('-\n', '')
     # Normalize whitespace
     text = re.sub(r'\s+', ' ', text).strip()
     return text
