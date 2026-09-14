@@ -38,7 +38,8 @@ def validate_query(query: str) -> bool:
     # Check for dates > 1899
     # We match numbers >= 1900.
     # To avoid false positives (e.g. "5000 men" or "1950 dollars"), we check the following word.
-    matches = re.finditer(r'\b([1-9]\d{3})(s)?\b', query_lower)
+    # We use a negative lookahead (?![.,]\d) to ignore numbers that are part of a larger decimal or comma-separated quantity (e.g., 1950.00, 1900,000).
+    matches = re.finditer(r'\b([1-9]\d{3})(s)?\b(?![.,]\d)', query_lower)
     for match in matches:
         num = int(match.group(1))
         has_s = match.group(2)
