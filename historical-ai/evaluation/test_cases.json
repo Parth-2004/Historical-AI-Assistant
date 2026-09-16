@@ -226,5 +226,13 @@
     {
         "query": "Did Alexander Hamilton write The Federalist Papers?",
         "expected": "Allowed"
+    },
+    {
+        "query": "What happened in 20000?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He had 20000 men in his army.",
+        "expected": "Allowed"
     }
 ]
