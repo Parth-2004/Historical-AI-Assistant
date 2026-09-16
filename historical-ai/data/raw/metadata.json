@@ -61,5 +61,19 @@
         "author": "Thomas Paine",
         "year": 1776,
         "domain": "History"
+    },
+    {
+        "filename": "the_art_of_war.txt",
+        "title": "The Art of War",
+        "author": "Sun Tzu",
+        "year": -500,
+        "domain": "Military History"
+    },
+    {
+        "filename": "the_federalist_papers.txt",
+        "title": "The Federalist Papers",
+        "author": "Alexander Hamilton, James Madison, John Jay",
+        "year": 1788,
+        "domain": "Political History"
     }
 ]

@@ -1,218 +1,230 @@
 [
-  {
-    "query": "Who is Newton?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is AI?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Explain evolution",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is WiFi?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Explain WiFi",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What is evolution?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Tell me about the iphone",
-    "expected": "Refusal"
-  },
-  {
-    "query": "When was the Civil War?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What happened in 1900?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Tell me about computers",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What are smartphones?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What happened in 1899?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Who is John Doe?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Who won the World War?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What is the United Nations?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Write a Python script",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What happened in 2105?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "An army of 5000 men",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Who gave the Gettysburg address?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "An army of 2000 men",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What happened in 2500?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "The 1920s were a crazy time",
-    "expected": "Refusal"
-  },
-  {
-    "query": "He walked 1950 miles",
-    "expected": "Allowed"
-  },
-  {
-    "query": "An army of 2000, men",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Cost is 1950. dollars.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "2000-men",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Cost is £1900.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Cost is $1950.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "He has 1900 coins.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "A 1900 ton ship.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Who signed the Magna Carta?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What does the Declaration of Independence say?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is the United States Constitution?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What did Abraham Lincoln write about slavery?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What happened in nineteen hundred?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Tell me about the twentieth century.",
-    "expected": "Refusal"
-  },
-  {
-    "query": "In the year nineteen twelve...",
-    "expected": "Refusal"
-  },
-  {
-    "query": "The nineteenth century was interesting.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What happened in nineteen ninety-nine?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What happened in twenty twenty?",
-    "expected": "Refusal"
-  },
-  {
-    "query": "Tell me about twenty ten.",
-    "expected": "Refusal"
-  },
-  {
-    "query": "He had twenty men in his army.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "The year twenty twenty-one was wild.",
-    "expected": "Refusal"
-  },
-  {
-    "query": "They paid twenty hundred dollars.",
-    "expected": "Refusal"
-  },
-  {
-    "query": "He bought twenty apples.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is the first law of motion?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "The nineteen twenties were a crazy time",
-    "expected": "Refusal"
-  },
-  {
-    "query": "The nineteen nineties were a crazy time",
-    "expected": "Refusal"
-  },
-  {
-    "query": "What does the first amendment say?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is the Bill of Rights?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Who wrote Common Sense?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "What is Common Sense?",
-    "expected": "Allowed"
-  },
-  {
-    "query": "Cost is 1950.00 dollars.",
-    "expected": "Allowed"
-  },
-  {
-    "query": "He has 1900,000 dollars.",
-    "expected": "Allowed"
-  }
+    {
+        "query": "Who is Newton?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is AI?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Explain evolution",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is WiFi?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Explain WiFi",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What is evolution?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about the iphone",
+        "expected": "Refusal"
+    },
+    {
+        "query": "When was the Civil War?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What happened in 1900?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about computers",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What are smartphones?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in 1899?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who is John Doe?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who won the World War?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What is the United Nations?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Write a Python script",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in 2105?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "An army of 5000 men",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who gave the Gettysburg address?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "An army of 2000 men",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What happened in 2500?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The 1920s were a crazy time",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He walked 1950 miles",
+        "expected": "Allowed"
+    },
+    {
+        "query": "An army of 2000, men",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Cost is 1950. dollars.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "2000-men",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Cost is \u00a31900.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Cost is $1950.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "He has 1900 coins.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "A 1900 ton ship.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who signed the Magna Carta?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What does the Declaration of Independence say?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the United States Constitution?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What did Abraham Lincoln write about slavery?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What happened in nineteen hundred?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the twentieth century.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "In the year nineteen twelve...",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The nineteenth century was interesting.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What happened in nineteen ninety-nine?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in twenty twenty?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about twenty ten.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He had twenty men in his army.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "The year twenty twenty-one was wild.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "They paid twenty hundred dollars.",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He bought twenty apples.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the first law of motion?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "The nineteen twenties were a crazy time",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The nineteen nineties were a crazy time",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What does the first amendment say?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the Bill of Rights?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who wrote Common Sense?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is Common Sense?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Cost is 1950.00 dollars.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "He has 1900,000 dollars.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who wrote The Art of War?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What are the key concepts of The Federalist Papers?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Did Alexander Hamilton write The Federalist Papers?",
+        "expected": "Allowed"
+    }
 ]
