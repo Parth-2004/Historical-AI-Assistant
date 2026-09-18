@@ -23,7 +23,7 @@ def validate_query(query: str) -> bool:
             return False
 
     # Check for spelled-out modern centuries
-    if re.search(r'\b(twentieth|twenty[\s-]*first|twenty[\s-]*second|20th|21st|22nd)\s+century\b', query_lower):
+    if re.search(r'\b(twentieth|twenty[\s-]*first|twenty[\s-]*second|20th|21st|22nd)[\s-]*century\b', query_lower):
         return False
 
     # Check for spelled-out modern years (e.g., "nineteen hundred", "nineteen twenty", "two thousand", "twenty twenty")
@@ -39,14 +39,15 @@ def validate_query(query: str) -> bool:
     # We match numbers >= 1900.
     # To avoid false positives (e.g. "5000 men" or "1950 dollars"), we check the following word.
     # We use a negative lookahead (?![.,]\d) to ignore numbers that are part of a larger decimal or comma-separated quantity (e.g., 1950.00, 1900,000).
-    matches = re.finditer(r'\b([1-9]\d{3,})(s)?\b(?![.,]\d)', query_lower)
+    matches = re.finditer(r'\b([1-9]\d{3,})(s|th|st|nd|rd|ad|ce|bc|bce)?\b(?![.,]\d)', query_lower)
     for match in matches:
         num = int(match.group(1))
-        has_s = match.group(2)
+        suffix = match.group(2)
         if num >= 1900:
-            if has_s:
-                # "1920s" -> definitely a year/decade reference
+            if suffix in ['s', 'th', 'st', 'nd', 'rd', 'ad', 'ce']:
                 return False
+            elif suffix in ['bc', 'bce']:
+                continue
 
             # Check context immediately after the number
             context_after = query_lower[match.end():].strip()

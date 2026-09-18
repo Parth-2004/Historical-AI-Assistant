@@ -234,5 +234,21 @@
     {
         "query": "He had 20000 men in his army.",
         "expected": "Allowed"
+    },
+    {
+        "query": "What happened in 1900AD?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in 1900CE?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in the 2000th year?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the 20th-century.",
+        "expected": "Refusal"
     }
 ]
