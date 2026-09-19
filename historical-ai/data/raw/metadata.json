@@ -75,5 +75,12 @@
         "author": "Alexander Hamilton, James Madison, John Jay",
         "year": 1788,
         "domain": "Political History"
+    },
+    {
+        "filename": "wealth_of_nations.txt",
+        "title": "The Wealth of Nations",
+        "author": "Adam Smith",
+        "year": 1776,
+        "domain": "Economics"
     }
 ]

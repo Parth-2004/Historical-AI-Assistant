@@ -250,5 +250,13 @@
     {
         "query": "Tell me about the 20th-century.",
         "expected": "Refusal"
+    },
+    {
+        "query": "What did Adam Smith write about the division of labour?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who is Adam Smith?",
+        "expected": "Allowed"
     }
 ]
