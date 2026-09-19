@@ -51,7 +51,7 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-def chunk_text(text: str, metadata: Dict, chunk_size=90, overlap=25) -> List[Dict]:
+def chunk_text(text: str, metadata: Dict, chunk_size=70, overlap=25) -> List[Dict]:
     words = text.split()
     chunks = []
     for i in range(0, len(words), chunk_size - overlap):
