@@ -52,14 +52,15 @@ class Retriever:
             if not query_terms:
                  query_terms = [t.strip(string.punctuation) for t in raw_terms if t.strip(string.punctuation)]
 
+            compiled_terms = [re.compile(rf'\b{re.escape(term)}\b') for term in query_terms]
+
             scored_results = []
             for item in self.metadata:
                 score = 0
                 # Include metadata in the search text for mock retrieval
                 search_text = f"{item.get('title', '')} {item.get('author', '')} {item.get('year', '')} {item['text']}".lower()
-                for term in query_terms:
-                    # Look for word boundaries to improve accuracy in mock mode
-                    if re.search(rf'\b{re.escape(term)}\b', search_text):
+                for term_regex in compiled_terms:
+                    if term_regex.search(search_text):
                         score += 1
                 if score > 0:
                     scored_results.append((score, item))
