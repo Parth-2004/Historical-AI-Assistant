@@ -82,5 +82,12 @@
         "author": "Adam Smith",
         "year": 1776,
         "domain": "Economics"
+    },
+    {
+        "filename": "second_treatise_of_government.txt",
+        "title": "Second Treatise of Government",
+        "author": "John Locke",
+        "year": 1689,
+        "domain": "Political Philosophy"
     }
 ]
