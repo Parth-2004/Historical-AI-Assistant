@@ -89,5 +89,12 @@
         "author": "John Locke",
         "year": 1689,
         "domain": "Political Philosophy"
+    },
+    {
+        "filename": "the_prince.txt",
+        "title": "The Prince",
+        "author": "Niccol\u00f2 Machiavelli",
+        "year": 1532,
+        "domain": "Political Philosophy"
     }
 ]

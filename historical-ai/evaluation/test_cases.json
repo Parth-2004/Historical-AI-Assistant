@@ -258,5 +258,13 @@
     {
         "query": "Who is Adam Smith?",
         "expected": "Allowed"
+    },
+    {
+        "query": "What did Machiavelli write about the prince?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who is Machiavelli?",
+        "expected": "Allowed"
     }
 ]
