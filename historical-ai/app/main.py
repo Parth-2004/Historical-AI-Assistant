@@ -76,7 +76,11 @@ def ask_historical_ai(query: str, model_path="mock") -> dict:
         if results:
             context_text = retriever.format_context(results)
             # transform results to simple source list
-            sources = [f"{r['title']} ({r['year']})" for r in results]
+            sources = []
+            for r in results:
+                src_str = f"{r['title']} ({r['year']})"
+                if src_str not in sources:
+                    sources.append(src_str)
         else:
             context_text = "No specific records found."
 

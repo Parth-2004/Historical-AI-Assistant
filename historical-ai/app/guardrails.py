@@ -51,7 +51,7 @@ def validate_query(query: str) -> bool:
 
             # Check context immediately after the number
             context_after = query_lower[match.end():].strip()
-            if re.match(r'^[\W_]*(men|women|soldiers|troops|people|persons|dollars|pounds|miles|feet|meters|horses|ships|guns|pages|words|years|days|months|hours|minutes|apples|books|casualties|deaths|sailors|ton|tons|kilogram|kilograms|gram|grams|ounce|ounces|coin|coins)\b', context_after):
+            if re.match(r'^[\W_]*(men|women|soldiers|troops|people|persons|dollars|pounds|francs|marks|rupees|yen|miles|feet|meters|horses|ships|guns|pages|words|years|days|months|hours|minutes|apples|books|casualties|deaths|sailors|ton|tons|kilogram|kilograms|gram|grams|ounce|ounces|coin|coins)\b', context_after):
                 # It's a quantity
                 continue
 

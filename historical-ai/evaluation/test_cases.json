@@ -266,5 +266,13 @@
     {
         "query": "Who is Machiavelli?",
         "expected": "Allowed"
+    },
+    {
+        "query": "Cost is 1950 francs.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "He has 1900 marks.",
+        "expected": "Allowed"
     }
 ]
