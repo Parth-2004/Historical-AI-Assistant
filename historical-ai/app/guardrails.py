@@ -39,9 +39,9 @@ def validate_query(query: str) -> bool:
     # We match numbers >= 1900.
     # To avoid false positives (e.g. "5000 men" or "1950 dollars"), we check the following word.
     # We use a negative lookahead (?![.,]\d) to ignore numbers that are part of a larger decimal or comma-separated quantity (e.g., 1950.00, 1900,000).
-    matches = re.finditer(r'\b([1-9]\d{3,})(s|th|st|nd|rd|ad|ce|bc|bce)?\b(?![.,]\d)', query_lower)
+    matches = re.finditer(r'\b([1-9]\d{0,2}(?:,\d{3})+|[1-9]\d{3,})(s|th|st|nd|rd|ad|ce|bc|bce)?\b(?![.,]\d)', query_lower)
     for match in matches:
-        num = int(match.group(1))
+        num = int(match.group(1).replace(",", ""))
         suffix = match.group(2)
         if num >= 1900:
             if suffix in ['s', 'th', 'st', 'nd', 'rd', 'ad', 'ce']:
