@@ -274,5 +274,13 @@
     {
         "query": "He has 1900 marks.",
         "expected": "Allowed"
+    },
+    {
+        "query": "What happened in 2,023?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The population was 1,950 men",
+        "expected": "Allowed"
     }
 ]
