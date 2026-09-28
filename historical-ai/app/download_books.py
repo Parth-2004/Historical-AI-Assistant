@@ -12,7 +12,8 @@ BOOKS = {
 ,
     "The Declaration of Independence (Thomas Jefferson)": "https://www.gutenberg.org/cache/epub/1/pg1.txt",
     "The United States Constitution (United States)": "https://www.gutenberg.org/cache/epub/5/pg5.txt",
-    "The Magna Carta (Anonymous)": "https://www.gutenberg.org/cache/epub/10000/pg10000.txt"
+    "The Magna Carta (Anonymous)": "https://www.gutenberg.org/cache/epub/10000/pg10000.txt",
+    "The Republic (Plato)": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt"
 }
 
 def download_library():
