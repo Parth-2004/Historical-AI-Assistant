@@ -96,5 +96,12 @@
         "author": "Niccol\u00f2 Machiavelli",
         "year": 1532,
         "domain": "Political Philosophy"
+    },
+    {
+        "filename": "the_republic.txt",
+        "title": "The Republic",
+        "author": "Plato",
+        "year": -375,
+        "domain": "Philosophy"
     }
 ]

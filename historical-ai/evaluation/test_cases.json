@@ -282,5 +282,17 @@
     {
         "query": "The population was 1,950 men",
         "expected": "Allowed"
+    },
+    {
+        "query": "What did Plato say about justice in The Republic?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Who wrote The Republic?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "What is the allegory of the cave?",
+        "expected": "Allowed"
     }
 ]
