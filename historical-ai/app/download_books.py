@@ -3,17 +3,12 @@ import os
 
 # Project Gutenberg IDs for 19th Century Classics
 BOOKS = {
-    "Frankenstein (Mary Shelley)": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
-    "Pride and Prejudice (Jane Austen)": "https://www.gutenberg.org/cache/epub/1342/pg1342.txt",
-    "A Tale of Two Cities (Charles Dickens)": "https://www.gutenberg.org/cache/epub/98/pg98.txt",
-    "The Adventures of Sherlock Holmes (Arthur Conan Doyle)": "https://www.gutenberg.org/cache/epub/1661/pg1661.txt",
-    "Dracula (Bram Stoker)": "https://www.gutenberg.org/cache/epub/345/pg345.txt",
-    "The Time Machine (H.G. Wells)": "https://www.gutenberg.org/cache/epub/35/pg35.txt"
-,
     "The Declaration of Independence (Thomas Jefferson)": "https://www.gutenberg.org/cache/epub/1/pg1.txt",
     "The United States Constitution (United States)": "https://www.gutenberg.org/cache/epub/5/pg5.txt",
     "The Magna Carta (Anonymous)": "https://www.gutenberg.org/cache/epub/10000/pg10000.txt",
-    "The Republic (Plato)": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt"
+    "The Republic (Plato)": "https://www.gutenberg.org/cache/epub/1497/pg1497.txt",
+    "The Communist Manifesto (Karl Marx)": "https://www.gutenberg.org/cache/epub/61/pg61.txt",
+    "Meditations (Marcus Aurelius)": "https://www.gutenberg.org/cache/epub/2680/pg2680.txt"
 }
 
 def download_library():

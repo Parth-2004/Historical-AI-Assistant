@@ -46,7 +46,7 @@ def run_tests():
             print("[PASS] Retriever loaded successfully.")
 
             # Test Irrelevant Retrieval
-            irrelevant_query = "What is the recipe for chocolate chip cookies?"
+            irrelevant_query = "modern website using React"
             irrelevant_results = retriever.retrieve(irrelevant_query, k=3)
             if len(irrelevant_results) == 0:
                 print("[PASS] Irrelevant query successfully filtered out.")

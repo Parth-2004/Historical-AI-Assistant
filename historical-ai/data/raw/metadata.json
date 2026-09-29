@@ -103,5 +103,19 @@
         "author": "Plato",
         "year": -375,
         "domain": "Philosophy"
+    },
+    {
+        "filename": "the_communist_manifesto.txt",
+        "title": "The Communist Manifesto",
+        "author": "Karl Marx and Friedrich Engels",
+        "year": 1848,
+        "domain": "Political Science"
+    },
+    {
+        "filename": "meditations.txt",
+        "title": "Meditations",
+        "author": "Marcus Aurelius",
+        "year": 180,
+        "domain": "Philosophy"
     }
 ]
