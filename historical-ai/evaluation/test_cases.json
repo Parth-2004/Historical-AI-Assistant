@@ -310,5 +310,21 @@
     {
         "query": "Who wrote Meditations?",
         "expected": "Allowed"
+    },
+    {
+        "query": "He had 2000 sheep.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "A distance of 2000 leagues.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "They found 1950 gold pieces.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "An army with 1900 cannons.",
+        "expected": "Allowed"
     }
 ]
