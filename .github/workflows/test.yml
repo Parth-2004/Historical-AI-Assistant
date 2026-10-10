@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - "automation/**"
 
 jobs:
   test:
@@ -30,6 +31,10 @@ jobs:
       - name: Check Python syntax
         run: |
           python -m compileall -q historical-ai
+
+      - name: Check static website
+        working-directory: historical-ai
+        run: python web/test_static_site.py
 
       - name: Run historical evaluation suite
         working-directory: historical-ai
