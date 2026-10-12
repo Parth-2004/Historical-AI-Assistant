@@ -51,24 +51,81 @@ def clean_text(text: str) -> str:
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
-def chunk_text(text: str, metadata: Dict, chunk_size=70, overlap=25) -> List[Dict]:
-    words = text.split()
+def chunk_text(text: str, metadata: Dict, max_words=150, overlap_sentences=1) -> List[Dict]:
+    sentences = re.split(r'(?<=[.!?])\s+', text)
     chunks = []
-    for i in range(0, len(words), chunk_size - overlap):
-        chunk_words = words[i:i + chunk_size]
-        chunk_content = " ".join(chunk_words)
 
-        if len(chunk_words) < 20: # Skip very small chunks
+    current_chunk = []
+    current_word_count = 0
+
+    for sentence in sentences:
+        sentence = sentence.strip()
+        if not sentence:
             continue
 
-        chunks.append({
-            "text": chunk_content,
-            "title": metadata["title"],
-            "author": metadata["author"],
-            "year": metadata["year"],
-            "domain": metadata["domain"],
-            "source_file": metadata["filename"]
-        })
+        words = sentence.split()
+
+        # If a single sentence is extremely long, we fall back to splitting it by words
+        if len(words) > max_words:
+            if current_chunk:
+                chunk_content = " ".join(current_chunk)
+                if len(chunk_content.split()) >= 20:
+                    chunks.append({
+                        "text": chunk_content,
+                        "title": metadata["title"],
+                        "author": metadata["author"],
+                        "year": metadata["year"],
+                        "domain": metadata["domain"],
+                        "source_file": metadata["filename"]
+                    })
+                current_chunk = []
+                current_word_count = 0
+
+            # Hard split the long sentence
+            for i in range(0, len(words), max_words - 25): # 25 word overlap
+                sub_words = words[i:i+max_words]
+                if len(sub_words) >= 20:
+                    chunks.append({
+                        "text": " ".join(sub_words),
+                        "title": metadata["title"],
+                        "author": metadata["author"],
+                        "year": metadata["year"],
+                        "domain": metadata["domain"],
+                        "source_file": metadata["filename"]
+                    })
+            continue
+
+        if current_word_count + len(words) > max_words and current_chunk:
+            chunk_content = " ".join(current_chunk)
+            if len(chunk_content.split()) >= 20:
+                chunks.append({
+                    "text": chunk_content,
+                    "title": metadata["title"],
+                    "author": metadata["author"],
+                    "year": metadata["year"],
+                    "domain": metadata["domain"],
+                    "source_file": metadata["filename"]
+                })
+
+            # Start new chunk with overlap
+            current_chunk = current_chunk[-overlap_sentences:] if overlap_sentences > 0 else []
+            current_word_count = sum(len(s.split()) for s in current_chunk)
+
+        current_chunk.append(sentence)
+        current_word_count += len(words)
+
+    if current_chunk:
+        chunk_content = " ".join(current_chunk)
+        if len(chunk_content.split()) >= 20 or not chunks:
+            chunks.append({
+                "text": chunk_content,
+                "title": metadata["title"],
+                "author": metadata["author"],
+                "year": metadata["year"],
+                "domain": metadata["domain"],
+                "source_file": metadata["filename"]
+            })
+
     return chunks
 
 def build_knowledge_base():
