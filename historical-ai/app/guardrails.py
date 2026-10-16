@@ -23,12 +23,34 @@ def validate_query(query: str) -> bool:
             return False
 
     # Check for spelled-out modern centuries
-    if re.search(r'\b(twentieth|twenty[\s-]*first|twenty[\s-]*second|20th|21st|22nd)[\s-]*century\b', query_lower):
+    if re.search(r'\b(?:(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[\s-]*(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)|(?:twentieth|thirtieth|fortieth|fiftieth|sixtieth|seventieth|eightieth|ninetieth)|(?:2[0-9]|[3-9][0-9]|[1-9][0-9]{2,})(?:st|nd|rd|th))[\s-]*century\b', query_lower):
         return False
 
-    # Check for spelled-out modern years (e.g., "nineteen hundred", "nineteen twenty", "two thousand", "twenty twenty")
-    # We match "nineteen" or "twenty" followed by 0-99, or "two thousand"
-    if re.search(r'\b(nineteen|twenty)[\s-]*(hundred|oh[\s-]+(one|two|three|four|five|six|seven|eight|nine)|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)\b|\btwo[\s-]*thousand\b', query_lower):
+    # Check for spelled-out modern years (e.g., "nineteen hundred", "nineteen twenty", "two thousand", "twenty twenty", "twenty-one hundred")
+    ones = r'one|two|three|four|five|six|seven|eight|nine'
+    teens = r'ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen|seventeen|eighteen|nineteen'
+    tens = r'twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety'
+    tens_ones = rf'(?:{tens})(?:[\s-]+(?:{ones}))?'
+    num_10_to_99 = rf'(?:{teens}|{tens_ones})'
+    num_0_to_99 = rf'(?:{ones}|{num_10_to_99})'
+    year_prefix = rf'(?:nineteen|twenty|twenty[\s-]+one)'
+
+    pattern_spelled_years = rf'\b(?:{year_prefix}[\s-]+hundred|(?:nineteen|twenty)[\s-]+(?:oh[\s-]+(?:{ones})|{num_10_to_99})|two[\s-]*thousand(?:\s+and\s+(?:{num_0_to_99}))?)\b'
+    # Ensure matches_spelled includes 'twenty hundred'
+    matches_spelled = list(re.finditer(pattern_spelled_years, query_lower))
+    matches_twenty = list(re.finditer(r'\btwenty[\s-]+hundred\b', query_lower))
+
+    # Simple deduplication (just append, doesn't matter if tested twice)
+    matches_spelled.extend(matches_twenty)
+    for match in matches_spelled:
+        context_after = query_lower[match.end():].strip()
+        if re.match(r'^[\W_]*(men|women|soldiers|troops|people|persons|dollars|pounds|francs|marks|rupees|yen|shillings|pence|ducats|guilders|gold|silver|copper|miles|feet|meters|leagues|yards|acres|horses|sheep|cattle|pigs|cows|dogs|cats|ships|boats|guns|swords|muskets|cannons|pages|words|letters|years|days|months|hours|minutes|seconds|apples|books|casualties|deaths|sailors|ton|tons|kilogram|kilograms|gram|grams|ounce|ounces|gallons|liters|pints|quarts|coin|coins|pieces)\b', context_after):
+            continue
+        if re.match(r'^[\W_]*[£$€¥]', context_after):
+            continue
+        context_before = query_lower[:match.start()].strip()
+        if re.search(r'[£$€¥]\s*$', context_before):
+            continue
         return False
 
     # Check for spelled-out modern decades (e.g., "nineteen twenties", "nineteen nineties")

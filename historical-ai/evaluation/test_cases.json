@@ -173,7 +173,7 @@
     },
     {
         "query": "They paid twenty hundred dollars.",
-        "expected": "Refusal"
+        "expected": "Allowed"
     },
     {
         "query": "He bought twenty apples.",
@@ -326,5 +326,29 @@
     {
         "query": "An army with 1900 cannons.",
         "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about the 25th century",
+        "expected": "Refusal"
+    },
+    {
+        "query": "The year twenty twenty-one was wild",
+        "expected": "Refusal"
+    },
+    {
+        "query": "He bought nineteen hundred apples.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about twenty-one hundred",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Cost is twenty-five hundred dollars.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about twenty twenty",
+        "expected": "Refusal"
     }
 ]
