@@ -38,7 +38,7 @@ class Retriever:
         if self.is_mock:
             # Simple keyword matching for demo with basic stopword filtering
             import string
-            stopwords = {'what', 'is', 'the', 'a', 'an', 'of', 'in', 'to', 'and', 'for', 'with', 'on', 'how', 'why', 'who', 'where', 'when', 'did', 'does', 'do', 'are', 'was', 'were'}
+            stopwords = {'what', 'is', 'the', 'a', 'an', 'of', 'in', 'to', 'and', 'for', 'with', 'on', 'how', 'why', 'who', 'where', 'when', 'did', 'does', 'do', 'are', 'was', 'were', 'explain', 'tell', 'me', 'about', 'describe', 'can', 'you', 'please', 'would', 'could', 'should', 'it', 'that', 'this', 'these', 'those', 'has', 'have', 'had', 'been', 'be', 'will', 'shall', 'may', 'might', 'must', 'using', 'modern'}
 
             # Clean and filter query terms
             raw_terms = query.lower().split()
@@ -62,7 +62,8 @@ class Retriever:
                 for term_regex in compiled_terms:
                     if term_regex.search(search_text):
                         score += 1
-                if score > 0:
+                match_ratio = score / len(compiled_terms) if compiled_terms else 0
+                if match_ratio >= 0.5 and (score > 1 or len(compiled_terms) == 1):
                     scored_results.append((score, item))
 
             # Sort by score descending
