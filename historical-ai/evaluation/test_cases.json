@@ -350,5 +350,21 @@
     {
         "query": "Tell me about twenty twenty",
         "expected": "Refusal"
+    },
+    {
+        "query": "I have 1950 chickens.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "A forest with 2000 trees.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "He built 1900 houses.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "An army of 2000 men.",
+        "expected": "Allowed"
     }
 ]
