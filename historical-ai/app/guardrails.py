@@ -5,8 +5,8 @@ keywords = [
     "computer", "internet", "smartphone", "nuclear", "airplane", "television",
     "radio", "transistor", "microchip", "software", "email", "website", "blog",
     "online", "digital", "virtual", "cyber", "quantum mechanics", "relativity",
-    "plastic", "antibiotics", "dna", "gene editing", "spaceflight", "satellite",
-    "automobile", "tank", "video", "mp3", "laser", "world war", "united nations",
+    "antibiotics", "dna", "gene editing", "spaceflight", "satellite",
+    "tank", "video", "mp3", "laser", "world war", "united nations",
     "python", "programming language", "nazi", "soviet union", "cold war"
 ]
 
