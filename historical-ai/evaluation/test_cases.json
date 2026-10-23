@@ -366,5 +366,13 @@
     {
         "query": "An army of 2000 men.",
         "expected": "Allowed"
+    },
+    {
+        "query": "What is a plastic material?",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about the automobile.",
+        "expected": "Allowed"
     }
 ]
