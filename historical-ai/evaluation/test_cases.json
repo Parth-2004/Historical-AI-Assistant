@@ -374,5 +374,13 @@
     {
         "query": "Tell me about the automobile.",
         "expected": "Allowed"
+    },
+    {
+        "query": "He has 1950 dollar.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "The population was 1950 person.",
+        "expected": "Allowed"
     }
 ]
