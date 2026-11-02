@@ -34,8 +34,14 @@ class Retriever:
         with open(self.meta_path, 'r', encoding='utf-8') as f:
             self.metadata = json.load(f)
 
+        self._mock_initialized = False
+
     def retrieve(self, query: str, k: int = 3) -> List[Dict]:
         if self.is_mock:
+            if not self._mock_initialized:
+                for item in self.metadata:
+                    item['_search_text'] = f"{item.get('title', '')} {item.get('author', '')} {item.get('year', '')} {item['text']}".lower()
+                self._mock_initialized = True
             # Simple keyword matching for demo with basic stopword filtering
             import string
             stopwords = {'what', 'is', 'the', 'a', 'an', 'of', 'in', 'to', 'and', 'for', 'with', 'on', 'how', 'why', 'who', 'where', 'when', 'did', 'does', 'do', 'are', 'was', 'were', 'explain', 'tell', 'me', 'about', 'describe', 'can', 'you', 'please', 'would', 'could', 'should', 'it', 'that', 'this', 'these', 'those', 'has', 'have', 'had', 'been', 'be', 'will', 'shall', 'may', 'might', 'must', 'using', 'modern'}
@@ -57,10 +63,10 @@ class Retriever:
             scored_results = []
             for item in self.metadata:
                 score = 0
-                # Include metadata in the search text for mock retrieval
-                search_text = f"{item.get('title', '')} {item.get('author', '')} {item.get('year', '')} {item['text']}".lower()
-                for term_regex in compiled_terms:
-                    if term_regex.search(search_text):
+                search_text = item.get('_search_text', '')
+                for i, term_regex in enumerate(compiled_terms):
+                    term = query_terms[i]
+                    if term in search_text and term_regex.search(search_text):
                         score += 1
                 match_ratio = score / len(compiled_terms) if compiled_terms else 0
                 if match_ratio >= 0.5 and (score > 1 or len(compiled_terms) == 1):
