@@ -382,5 +382,21 @@
     {
         "query": "The population was 1950 person.",
         "expected": "Allowed"
+    },
+    {
+        "query": "Who won WW2?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about WWI",
+        "expected": "Refusal"
+    },
+    {
+        "query": "ww1",
+        "expected": "Refusal"
+    },
+    {
+        "query": "ww2",
+        "expected": "Refusal"
     }
 ]
