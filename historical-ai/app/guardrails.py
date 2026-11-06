@@ -7,7 +7,8 @@ keywords = [
     "online", "digital", "virtual", "cyber", "quantum mechanics", "relativity",
     "antibiotics", "dna", "gene editing", "spaceflight", "satellite",
     "tank", "video", "mp3", "laser", "world war", "united nations",
-    "python", "programming language", "nazi", "soviet union", "cold war"
+    "python", "programming language", "nazi", "soviet union", "cold war",
+    "wwi", "ww1", "world war i", "world war 1", "wwii", "ww2", "world war ii", "world war 2"
 ]
 
 def validate_query(query: str) -> bool:
