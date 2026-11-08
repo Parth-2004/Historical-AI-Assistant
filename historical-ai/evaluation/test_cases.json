@@ -398,5 +398,13 @@
     {
         "query": "ww2",
         "expected": "Refusal"
+    },
+    {
+        "query": "I lived in a 1900 home.",
+        "expected": "Allowed"
+    },
+    {
+        "query": "1900kg of iron",
+        "expected": "Allowed"
     }
 ]
