@@ -24,7 +24,7 @@ def validate_query(query: str) -> bool:
             return False
 
     # Check for spelled-out modern centuries
-    if re.search(r'\b(?:(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[\s-]*(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)|(?:twentieth|thirtieth|fortieth|fiftieth|sixtieth|seventieth|eightieth|ninetieth)|(?:2[0-9]|[3-9][0-9]|[1-9][0-9]{2,})(?:st|nd|rd|th))[\s-]*century\b', query_lower):
+    if re.search(r'\b(?:(?:twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety)[\s-]*(?:first|second|third|fourth|fifth|sixth|seventh|eighth|ninth)|(?:twentieth|thirtieth|fortieth|fiftieth|sixtieth|seventieth|eightieth|ninetieth)|(?:2[0-9]|[3-9][0-9]|[1-9][0-9]{2,})[\s-]*(?:st|nd|rd|th)?|x{2,}[ivx]*)[\s-]*century\b', query_lower):
         return False
 
     # Check for spelled-out modern years (e.g., "nineteen hundred", "nineteen twenty", "two thousand", "twenty twenty", "twenty-one hundred")
