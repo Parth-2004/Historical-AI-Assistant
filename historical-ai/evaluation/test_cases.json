@@ -406,5 +406,29 @@
     {
         "query": "1900kg of iron",
         "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about the 20 th century",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the 20 century",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the XX century",
+        "expected": "Refusal"
+    },
+    {
+        "query": "What happened in the XXI century?",
+        "expected": "Refusal"
+    },
+    {
+        "query": "Tell me about the 19th century",
+        "expected": "Allowed"
+    },
+    {
+        "query": "Tell me about the XIX century",
+        "expected": "Allowed"
     }
 ]
